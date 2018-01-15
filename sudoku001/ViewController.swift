@@ -87,6 +87,10 @@ class ViewController: UIViewController {
                 
                 var cell = sudokuGrid[rowIndex][columnIndex]
                 
+                
+                
+                // - - - - - - - scans horizontally
+                
                 var answersFoundInRow: [Int] = []
                 
                 // scan for other answers in the current row
@@ -116,6 +120,30 @@ class ViewController: UIViewController {
                 
                 // take those answers out of this pringles can
                 
+                
+                // - - - - - - - - - - scan vertically
+                
+                var answersFoundInColumn: [Int] = []
+                
+                // scan for other answers in the current column
+                for currentRowInScan in 0..<numberOfRows {
+                    
+                    let iteratedCan = sudokuGrid[currentRowInScan][columnIndex]
+                    
+                    if isThisCellAnAnswer(withRow: currentRowInScan, andColumn: columnIndex) {
+                        // take the number out of the pringles can
+                        let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[currentRowInScan][columnIndex]
+                        let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
+                        answersFoundInColumn.append(foundAnswer)
+                    }
+                }
+                
+                print(answersFoundInColumn)
+                
+                cell = takeAnswersOutOfCell(withAnswers: answersFoundInColumn, andCell: sudokuGrid[rowIndex][columnIndex])
+                
+                // set the data after having removed all found horizontal numbers already  the row
+                sudokuGrid[rowIndex][columnIndex] = cell
                 
             }
         }
@@ -159,22 +187,6 @@ class ViewController: UIViewController {
             return true
         } else {
             return false
-        }
-    }
-    
-    func scanHorizontal(withRow inputRow: Int) {
-        // find numbers
-        for currentColumnIndex in 0..<numberOfColumns {
-            // get the can
-            let iteratedPringlesCan = sudokuGrid[inputRow][currentColumnIndex]
-        }
-    }
-    
-    func scanVertical(withColumn inputColumn: Int) {
-        // find numbers
-        for currentRowIndex in 0..<numberOfRows {
-            // get the can
-            let iteratedPringlesCan = sudokuGrid[currentRowIndex][inputColumn]
         }
     }
     
