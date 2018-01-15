@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initGrid(withPossibleNumbers: possibleNumbers)
         setGridWithPrintedAnswers()
         printSudokuGrid()
@@ -37,20 +38,138 @@ class ViewController: UIViewController {
         solvePuzzle()
     }
     
+    //Writes in the printed answer
+    func setGridWithPrintedAnswers() {
+        setAnswerForCell(withRow: 0, andColumn: 0, withAnswer: 5)
+        setAnswerForCell(withRow: 0, andColumn: 1, withAnswer: 3)
+        setAnswerForCell(withRow: 0, andColumn: 4, withAnswer: 7)
+        
+        setAnswerForCell(withRow: 1, andColumn: 0, withAnswer: 6)
+        setAnswerForCell(withRow: 1, andColumn: 3, withAnswer: 1)
+        setAnswerForCell(withRow: 1, andColumn: 4, withAnswer: 9)
+        setAnswerForCell(withRow: 1, andColumn: 5, withAnswer: 5)
+        
+        setAnswerForCell(withRow: 2, andColumn: 1, withAnswer: 9)
+        setAnswerForCell(withRow: 2, andColumn: 2, withAnswer: 8)
+        setAnswerForCell(withRow: 2, andColumn: 7, withAnswer: 6)
+        
+        setAnswerForCell(withRow: 3, andColumn: 0, withAnswer: 8)
+        setAnswerForCell(withRow: 3, andColumn: 4, withAnswer: 6)
+        setAnswerForCell(withRow: 3, andColumn: 8, withAnswer: 3)
+        
+        setAnswerForCell(withRow: 4, andColumn: 0, withAnswer: 4)
+        setAnswerForCell(withRow: 4, andColumn: 3, withAnswer: 8)
+        setAnswerForCell(withRow: 4, andColumn: 5, withAnswer: 3)
+        setAnswerForCell(withRow: 4, andColumn: 8, withAnswer: 1)
+        
+        setAnswerForCell(withRow: 5, andColumn: 0, withAnswer: 7)
+        setAnswerForCell(withRow: 5, andColumn: 4, withAnswer: 2)
+        setAnswerForCell(withRow: 5, andColumn: 8, withAnswer: 6)
+        
+        setAnswerForCell(withRow: 6, andColumn: 1, withAnswer: 6)
+        setAnswerForCell(withRow: 6, andColumn: 6, withAnswer: 2)
+        setAnswerForCell(withRow: 6, andColumn: 7, withAnswer: 8)
+        
+        setAnswerForCell(withRow: 7, andColumn: 3, withAnswer: 4)
+        setAnswerForCell(withRow: 7, andColumn: 4, withAnswer: 1)
+        setAnswerForCell(withRow: 7, andColumn: 5, withAnswer: 9)
+        setAnswerForCell(withRow: 7, andColumn: 8, withAnswer: 5)
+        
+        setAnswerForCell(withRow: 8, andColumn: 4, withAnswer: 8)
+        setAnswerForCell(withRow: 8, andColumn: 7, withAnswer: 7)
+        setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
+    }
+    
     func solvePuzzle() {
         
-        // end condition
-        // all the cans have only one pringle
+        for rowIndex in 0..<numberOfRows {
+            for columnIndex in 0..<numberOfColumns {
+                
+                
+                
+                
+                
+                let cell = sudokuGrid[rowIndex][columnIndex]
+                
+                // scan for other answers in the current row
+                for currentColumnInScan in 0..<numberOfColumns {
+                    let iteratedCan = sudokuGrid[rowIndex][currentColumnInScan]
+                    if isThisCellAnAnswer(withRow: rowIndex, andColumn: currentColumnInScan) {
+                        // take the number out of the pringles can
+                        
+                    }
+                }
+                
+                // are there any answers
+                // take those answers out of this pringles can
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+        }
         
+        // when one can has only one pringle it becomes an answer
+        
+        // scan horizontally for answers
+        
+        // take answer chips out of pringles
+        // scan veritcal for answers
+        // take answer chips out of pringles
+        // scan block for answers
+        // take answer chips out of pringles
+        
+        // end condition: all the cans have only one pringle
         
     }
     
+    //Scan a can, if only has one chip in it
+    func isThisCellAnAnswer(withRow inputRow: Int, andColumn inputColumn: Int) -> Bool {
+        let cell = sudokuGrid[inputRow][inputColumn]
+        let numberOfChipsInCell = cell.count
+        if numberOfChipsInCell == 1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func scanHorizontal(withRow inputRow: Int) {
+        // find numbers
+        for i in 0..<numberOfColumns {
+            // get the can
+            let iteratedPringlesCan = sudokuGrid[inputRow][i]
+            
+            // go through the row
+            // and find out what's in each of the cans
+            // if there is a token signifying there is only one chip in the can
+            
+            // if there's a number
+            
+            // take it out of the pringles can
+        }
+        // take numbers out of pringle can
+    }
 //    vertical scan
+    func scanVertical(withColumn inputColumn: Int) {
+
+    }
+    
+
+    
+    func scanBlock(withBlock inputBlock: [[Int]]) {
+        
+    }
+    
+    
 //    horizontal scan
 //    block scan
     
-//    [0,0], [0,1], 0,8
-
+    //Sets up blocks for block scans
     let blockOne = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
     let blockTwo = [[0,3],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
     let blockThree = [[0,6],[0,7],[0,8],[1,6],[1,7],[1,8],[2,6],[2,7],[2,8]]
@@ -63,22 +182,6 @@ class ViewController: UIViewController {
     let blockEight = [[6,3],[6,4],[6,5],[7,3],[7,4],[7,5],[8,3],[8,4],[8,5]]
     let blockNine = [[6,6],[6,7],[6,8],[7,6],[7,7],[7,8],[8,6],[8,7],[8,8]]
 
-    
-    
-    
-    
-//    let blockTwo = 0,3 to 0,5 and 1,3 to 1,5 and 2,3 to 2,5
-//    let blockThree = 0,6 to 0,8 and 1,6 to 1,8 and 2,6 to 2,8
-//    let blockFour = 3,0 to 3,2 and 4,0 to 4,2 and 5,0 to 5,2
-//    let blockFive = 3,3 to 3,5 and 4,3 to 4,5 and 5,3 to 5,5
-//    let blockSix = 3,6 to 3,8 and 4,6 to 4,8 and 5,6 to 5,8
-//    let blockSeven = 6,0 to 6,2 and 7,0 to 7,2 and 8,0 to 8,2
-//    let blockEight = 6,3 to 6,5 and 7,3 to 7,5 and 8,3 to 8,5
-//    let blockNine = 6,6 to 6,8 and 7,6 to 7,8 and 8,6 to 8,8
-    
-    
-    
-    
     // do this until every can has only one pringle:
     // for 0,0
       // scan 0,0 to 0,9
@@ -139,7 +242,7 @@ class ViewController: UIViewController {
         
         print("printSudokuGrid called. Display updated")
     }
-    
+
     func countOfPossibleNumbersLeftInCell(withRow inputRow: Int, andColumn inputColumn: Int) -> Int {
         let arrayOfPossibleNumbersInCell = sudokuGrid[inputRow][inputColumn]
         let returnCountOfPossibleNumbersInCell = arrayOfPossibleNumbersInCell.count
@@ -151,50 +254,73 @@ class ViewController: UIViewController {
         sudokuGrid[inputRow][inputColumn] = [inputAnswer]
     }
     
-    //Writes in the printed answer
-    func setGridWithPrintedAnswers() {
-        setAnswerForCell(withRow: 0, andColumn: 0, withAnswer: 5)
-        setAnswerForCell(withRow: 0, andColumn: 1, withAnswer: 3)
-        setAnswerForCell(withRow: 0, andColumn: 4, withAnswer: 7)
-        
-        setAnswerForCell(withRow: 1, andColumn: 0, withAnswer: 6)
-        setAnswerForCell(withRow: 1, andColumn: 3, withAnswer: 1)
-        setAnswerForCell(withRow: 1, andColumn: 4, withAnswer: 9)
-        setAnswerForCell(withRow: 1, andColumn: 5, withAnswer: 5)
-        
-        setAnswerForCell(withRow: 2, andColumn: 1, withAnswer: 9)
-        setAnswerForCell(withRow: 2, andColumn: 2, withAnswer: 8)
-        setAnswerForCell(withRow: 2, andColumn: 7, withAnswer: 6)
-        
-        setAnswerForCell(withRow: 3, andColumn: 0, withAnswer: 8)
-        setAnswerForCell(withRow: 3, andColumn: 4, withAnswer: 6)
-        setAnswerForCell(withRow: 3, andColumn: 8, withAnswer: 3)
-
-        setAnswerForCell(withRow: 4, andColumn: 0, withAnswer: 4)
-        setAnswerForCell(withRow: 4, andColumn: 3, withAnswer: 8)
-        setAnswerForCell(withRow: 4, andColumn: 5, withAnswer: 3)
-        setAnswerForCell(withRow: 4, andColumn: 8, withAnswer: 1)
-
-        setAnswerForCell(withRow: 5, andColumn: 0, withAnswer: 7)
-        setAnswerForCell(withRow: 5, andColumn: 4, withAnswer: 2)
-        setAnswerForCell(withRow: 5, andColumn: 8, withAnswer: 6)
-        
-        setAnswerForCell(withRow: 6, andColumn: 1, withAnswer: 6)
-        setAnswerForCell(withRow: 6, andColumn: 6, withAnswer: 2)
-        setAnswerForCell(withRow: 6, andColumn: 7, withAnswer: 8)
-        
-        setAnswerForCell(withRow: 7, andColumn: 3, withAnswer: 4)
-        setAnswerForCell(withRow: 7, andColumn: 4, withAnswer: 1)
-        setAnswerForCell(withRow: 7, andColumn: 5, withAnswer: 9)
-        setAnswerForCell(withRow: 7, andColumn: 8, withAnswer: 5)
-        
-        setAnswerForCell(withRow: 8, andColumn: 4, withAnswer: 8)
-        setAnswerForCell(withRow: 8, andColumn: 7, withAnswer: 7)
-        setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
-    }
+    
     
     //Sets a timer to update the latest data for the Sudoku puzzle every second
     func startOneSecondTimer() {
         oneSecondTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printSudokuGrid), userInfo: nil, repeats: true);
+    }
+    
+//    func formatTextView() {
+//
+//        // Set the monospaced font
+//        guard let monoSpacedFont = UIFont(name: "Neon Pixel-7", size: 66) else {
+//            return
+//        }
+//        textView.font = monoSpacedFont
+//
+//        // Determine the width/height difference
+//        let fontSize = sizeOfString(string: "1", font: monoSpacedFont)
+//        let difference = fontSize.height - fontSize.width
+//
+//        // Add kerning to a new attributed string
+//        var adjustedString = NSMutableAttributedString(string: textView.text)
+//
+//        print("height: \(adjustedString.height(withConstrainedWidth: 0.0))")
+//        print("width: \(adjustedString.width(withConstrainedHeight: 0.0))")
+//
+//        let stringRange = NSMakeRange(0, adjustedString.length)
+//        adjustedString.addAttribute(NSAttributedStringKey.font, value: monoSpacedFont, range: stringRange)
+//        adjustedString.addAttribute(NSAttributedStringKey.kern, value: difference, range: stringRange)
+//        adjustedString.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.cyan, range: stringRange)
+//        textView.attributedText = adjustedString
+//    }
+    
+//    func sizeOfString(string:String, font:UIFont) -> CGSize {
+//        let fontAttributes = [NSAttributedStringKey.font: font]
+//        let size = string.size(withAttributes: fontAttributes)
+//        return size
+//    }
+}
+
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font : font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font : font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+}
+
+extension NSAttributedString {
+    func height(withConstrainedWidth width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return ceil(boundingBox.width)
     }
 }
