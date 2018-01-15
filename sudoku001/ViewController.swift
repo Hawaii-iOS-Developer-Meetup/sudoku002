@@ -48,9 +48,17 @@ class ViewController: UIViewController {
         //2. Print out a item for each cell
         for i in 0..<numberOfRows {
             for j in 0..<numberOfColumns {
-                let iteratedArray = sudokuGrid[i][j]
-                let iteratedInt = iteratedArray[0]
-                let iteratedString = String.init(iteratedInt)
+                
+                let iteratedCountOfPossibleNumbers = countOfPossibleNumbersLeftInCell(withRow: i, andColumn: j)
+                
+                var iteratedString = ""
+                if iteratedCountOfPossibleNumbers > 1 {
+                    iteratedString = "X"
+                } else {
+                    let iteratedArrayOfPossibleNumbers = sudokuGrid[i][j]
+                    iteratedString = String.init(iteratedArrayOfPossibleNumbers[0])
+                }
+                
                 returnText.append(iteratedString)
             }
             returnText.append("\n")
@@ -60,17 +68,11 @@ class ViewController: UIViewController {
         inputTextView.text = returnText
     }
     
+    func countOfPossibleNumbersLeftInCell(withRow inputRow: Int, andColumn inputColumn: Int) -> Int {
+        let arrayOfPossibleNumbersInCell = sudokuGrid[inputRow][inputColumn]
+        let returnCountOfPossibleNumbersInCell = arrayOfPossibleNumbersInCell.count
+        return returnCountOfPossibleNumbersInCell
+    }
+    
     //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }
-
-
-
-
-
-
-
-
-
-
-
-
