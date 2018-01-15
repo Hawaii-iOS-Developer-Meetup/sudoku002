@@ -34,8 +34,69 @@ class ViewController: UIViewController {
         setGridWithPrintedAnswers()
         printSudokuGrid()
         startOneSecondTimer()
+        solvePuzzle()
     }
     
+    func solvePuzzle() {
+        
+        // end condition
+        // all the cans have only one pringle
+        
+        
+    }
+    
+//    vertical scan
+//    horizontal scan
+//    block scan
+    
+
+    let blockOne = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
+    let blockTwo = [[0,3],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
+    let blockThree = [[0,6],[0,7],[0,8],[1,6],[1,7],[1,8],[2,6],[2,7],[2,8]]
+
+    let blockFour = [[3,0],[3,1],[3,2],[4,0],[4,1],[4,2],[5,0],[5,1],[5,2]]
+    let blockFive = [[3,3],[3,4],[3,5],[4,3],[4,4],[4,5],[5,3],[5,4],[5,5]]
+    let blockSix = [[3,6],[3,7],[3,8],[4,6],[4,7],[4,8],[5,6],[5,7],[5,8]]
+    
+    let blockSeven = [[6,0],[6,1],[6,2],[7,0],[7,1],[7,2],[8,0],[8,1],[8,2]]
+    let blockEight = [[6,3],[6,4],[6,5],[7,3],[7,4],[7,5],[8,3],[8,4],[8,5]]
+    let blockNine = [[6,6],[6,7],[6,8],[7,6],[7,7],[7,8],[8,6],[8,7],[8,8]]
+
+    
+    
+    
+    
+//    let blockTwo = 0,3 to 0,5 and 1,3 to 1,5 and 2,3 to 2,5
+//    let blockThree = 0,6 to 0,8 and 1,6 to 1,8 and 2,6 to 2,8
+//    let blockFour = 3,0 to 3,2 and 4,0 to 4,2 and 5,0 to 5,2
+//    let blockFive = 3,3 to 3,5 and 4,3 to 4,5 and 5,3 to 5,5
+//    let blockSix = 3,6 to 3,8 and 4,6 to 4,8 and 5,6 to 5,8
+//    let blockSeven = 6,0 to 6,2 and 7,0 to 7,2 and 8,0 to 8,2
+//    let blockEight = 6,3 to 6,5 and 7,3 to 7,5 and 8,3 to 8,5
+//    let blockNine = 6,6 to 6,8 and 7,6 to 7,8 and 8,6 to 8,8
+    
+    
+    
+    
+    // do this until every can has only one pringle:
+    // for 0,0
+      // scan 0,0 to 0,9
+        // knock out anything that exists elsewhere
+      // scan 0,0 to 9,0
+        // knock out anything that exists elsewhere
+      // scan blockOne
+        // knock out anything that exists elsewhere
+
+    
+    //for 6,6
+      // scan 0,6 to 8,6
+      // scan 6,0 to 6,8
+      // scan blockFive
+    
+    //
+    
+    
+
     override func viewDidDisappear(_ animated: Bool) {
         oneSecondTimer.invalidate()
     }
@@ -129,15 +190,10 @@ class ViewController: UIViewController {
         setAnswerForCell(withRow: 8, andColumn: 4, withAnswer: 8)
         setAnswerForCell(withRow: 8, andColumn: 7, withAnswer: 7)
         setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
-
     }
     
-    
+    //Sets a timer to update the latest data for the Sudoku puzzle every second
     func startOneSecondTimer() {
-        
-        // Set timer to update the timer label every second
         oneSecondTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printSudokuGrid), userInfo: nil, repeats: true);
     }
-    
-    //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }
