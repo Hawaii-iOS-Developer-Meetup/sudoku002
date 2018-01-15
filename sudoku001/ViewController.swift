@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
+    var oneSecondTimer: Timer = Timer()
+    
     //1. Set up possible numbers into an array
     var possibleNumbers: [Int] = [1,2,3,4,5,6,7,8,9]
     var sudokuGrid: [[[Int]]] = [[[], [], [], [], [], [], [], [], []],
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initGrid(withPossibleNumbers: possibleNumbers)
         setGridWithPrintedAnswers()
-        printSudokuGrid(toTextView: textView)
+        printSudokuGrid()
     }
     
     func initGrid(withPossibleNumbers inputPossibleNumbers: [Int]) {
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func printSudokuGrid(toTextView inputTextView: UITextView) {
+    @objc func printSudokuGrid() {
         
         //1. Init the label
         var returnText = ""
@@ -66,7 +68,9 @@ class ViewController: UIViewController {
         }
         
         //3. Set the label with the data from the sudoku grid
-        inputTextView.text = returnText
+        textView.text = returnText
+        
+        print("printSudokuGrid called. Display updated")
     }
     
     func countOfPossibleNumbersLeftInCell(withRow inputRow: Int, andColumn inputColumn: Int) -> Int {
@@ -121,13 +125,14 @@ class ViewController: UIViewController {
         setAnswerForCell(withRow: 8, andColumn: 7, withAnswer: 7)
         setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
 
-
-
-
-
-        
-        
-
     }
+    
+    
+    func startOneSecondTimer() {
+        
+        // Set timer to update the timer label every second
+        oneSecondTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printSudokuGrid), userInfo: nil, repeats: true);
+    }
+    
     //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }

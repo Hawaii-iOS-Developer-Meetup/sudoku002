@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63266446200C483400291D64 /* neon_pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF991200C4364004235EA /* neon_pixel-7.ttf */; };
 		63AFF964200ACC4E004235EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF963200ACC4E004235EA /* AppDelegate.swift */; };
 		63AFF966200ACC4E004235EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF965200ACC4E004235EA /* ViewController.swift */; };
 		63AFF969200ACC4E004235EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF967200ACC4E004235EA /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		63AFF97F200ACC4E004235EA /* sudoku001UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sudoku001UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFF983200ACC4E004235EA /* sudoku001UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sudoku001UITests.swift; sourceTree = "<group>"; };
 		63AFF985200ACC4E004235EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63AFF991200C4364004235EA /* neon_pixel-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neon_pixel-7.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				63AFF967200ACC4E004235EA /* Main.storyboard */,
 				63AFF96A200ACC4E004235EA /* Assets.xcassets */,
 				63AFF96C200ACC4E004235EA /* LaunchScreen.storyboard */,
+				63AFF991200C4364004235EA /* neon_pixel-7.ttf */,
 				63AFF96F200ACC4E004235EA /* Info.plist */,
 			);
 			path = sudoku001;
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63266446200C483400291D64 /* neon_pixel-7.ttf in Resources */,
 				63AFF96E200ACC4E004235EA /* LaunchScreen.storyboard in Resources */,
 				63AFF96B200ACC4E004235EA /* Assets.xcassets in Resources */,
 				63AFF969200ACC4E004235EA /* Main.storyboard in Resources */,
