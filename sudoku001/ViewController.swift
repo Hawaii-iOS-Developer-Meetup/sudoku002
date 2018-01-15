@@ -49,6 +49,7 @@ class ViewController: UIViewController {
 //    horizontal scan
 //    block scan
     
+//    [0,0], [0,1], 0,8
 
     let blockOne = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
     let blockTwo = [[0,3],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
