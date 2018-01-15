@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        printSudokuGrid(withTextView: textView)
+        printSudokuGrid(toTextView: textView)
     }
     
     func initGrid(withPossibleNumbers inputPossibleNumbers: [Int]) {
@@ -31,9 +31,24 @@ class ViewController: UIViewController {
         }
     }
     
-    func printSudokuGrid(withTextView inputTextView: UITextView) {
-        inputTextView.text = "000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000"
+    func printSudokuGrid(toTextView inputTextView: UITextView) {
+        
+        //1. Init the
+        var returnText = "000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000"
+        
+        //2. Print out a item for each cell
+        for i in 0..<numberOfRows {
+            print("\n")
+            for j in 0..<numberOfColumns {
+                print(sudokuGrid[i][j])
+            }
+        }
+        
+        //3. Set the label with the data from the sudoku grid
+        inputTextView.text = returnText
     }
+    
+    //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }
 
 
