@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initGrid(withPossibleNumbers: possibleNumbers)
+        setAnswerForCell(withRow: 0, andColumn: 0, withAnswer: 2)
         printSudokuGrid(toTextView: textView)
     }
     
@@ -74,7 +75,7 @@ class ViewController: UIViewController {
         return returnCountOfPossibleNumbersInCell
     }
     
-    //TODO: Create a method to set a cell with a seeded value
+    //Sets a cell with a seeded value
     func setAnswerForCell(withRow inputRow: Int, andColumn inputColumn: Int, withAnswer inputAnswer: Int) {
         sudokuGrid[inputRow][inputColumn] = [inputAnswer]
     }
