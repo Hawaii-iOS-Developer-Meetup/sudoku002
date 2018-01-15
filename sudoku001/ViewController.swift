@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         for rowIndex in 0..<numberOfRows {
             for columnIndex in 0..<numberOfColumns {
                 
-                let cell = sudokuGrid[rowIndex][columnIndex]
+                var cell = sudokuGrid[rowIndex][columnIndex]
                 
                 var answersFoundInRow: [Int] = []
                 
@@ -99,6 +99,7 @@ class ViewController: UIViewController {
                         let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[rowIndex][currentColumnInScan]
                         let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
                         answersFoundInRow.append(foundAnswer)
+                        
                         // remove the number from anything that scans it
                         // any box that scans this cell, removes it from its own can
                     } else {
@@ -108,7 +109,11 @@ class ViewController: UIViewController {
                 
                 print(answersFoundInRow)
                 
-                // are there any answers
+                cell = takeAnswersOutOfCell(withAnswers: answersFoundInRow, andCell: sudokuGrid[rowIndex][columnIndex])
+                
+                // set the data after having removed all found horizontal numbers already  the row
+                sudokuGrid[rowIndex][columnIndex] = cell
+                
                 // take those answers out of this pringles can
                 
                 
@@ -129,6 +134,23 @@ class ViewController: UIViewController {
         
     }
     
+    func takeAnswersOutOfCell(withAnswers inputAnswers: [Int], andCell inputCell: [Int]) -> [Int] {
+        var returnCell: [Int] = []
+        returnCell = inputCell
+        if inputCell.count > 1 {
+            for answer in inputAnswers {
+                
+                //1. Get the index of the answer if it exists in the inputCell
+                if let indexOfAnswer = returnCell.index(of: answer) {
+                    //2. Remove the element at index of the answer
+                    returnCell.remove(at: indexOfAnswer)
+                    print("removed chip from can")
+                }
+            }
+        }
+        return returnCell
+    }
+    
     //Scan a can, if only has one chip in it
     func isThisCellAnAnswer(withRow inputRow: Int, andColumn inputColumn: Int) -> Bool {
         let cell = sudokuGrid[inputRow][inputColumn]
@@ -142,23 +164,18 @@ class ViewController: UIViewController {
     
     func scanHorizontal(withRow inputRow: Int) {
         // find numbers
-        for i in 0..<numberOfColumns {
+        for currentColumnIndex in 0..<numberOfColumns {
             // get the can
-            let iteratedPringlesCan = sudokuGrid[inputRow][i]
-            
-            // go through the row
-            // and find out what's in each of the cans
-            // if there is a token signifying there is only one chip in the can
-            
-            // if there's a number
-            
-            // take it out of the pringles can
+            let iteratedPringlesCan = sudokuGrid[inputRow][currentColumnIndex]
         }
-        // take numbers out of pringle can
     }
-//    vertical scan
+    
     func scanVertical(withColumn inputColumn: Int) {
-
+        // find numbers
+        for currentRowIndex in 0..<numberOfRows {
+            // get the can
+            let iteratedPringlesCan = sudokuGrid[currentRowIndex][inputColumn]
+        }
     }
     
 
