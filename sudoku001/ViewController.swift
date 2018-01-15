@@ -85,29 +85,31 @@ class ViewController: UIViewController {
         for rowIndex in 0..<numberOfRows {
             for columnIndex in 0..<numberOfColumns {
                 
-                
-                
-                
-                
                 let cell = sudokuGrid[rowIndex][columnIndex]
+                
+                var answersFoundInRow: [Int] = []
                 
                 // scan for other answers in the current row
                 for currentColumnInScan in 0..<numberOfColumns {
+                    
                     let iteratedCan = sudokuGrid[rowIndex][currentColumnInScan]
+                    
                     if isThisCellAnAnswer(withRow: rowIndex, andColumn: currentColumnInScan) {
                         // take the number out of the pringles can
-                        
+                        let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[rowIndex][currentColumnInScan]
+                        let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
+                        answersFoundInRow.append(foundAnswer)
+                        // remove the number from anything that scans it
+                        // any box that scans this cell, removes it from its own can
+                    } else {
+                        // do nothing
                     }
                 }
                 
+                print(answersFoundInRow)
+                
                 // are there any answers
                 // take those answers out of this pringles can
-                
-                
-                
-                
-                
-                
                 
                 
             }
