@@ -33,6 +33,11 @@ class ViewController: UIViewController {
         initGrid(withPossibleNumbers: possibleNumbers)
         setGridWithPrintedAnswers()
         printSudokuGrid()
+        startOneSecondTimer()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        oneSecondTimer.invalidate()
     }
     
     func initGrid(withPossibleNumbers inputPossibleNumbers: [Int]) {
