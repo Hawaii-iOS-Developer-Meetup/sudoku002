@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                 
                 var iteratedString = ""
                 if iteratedCountOfPossibleNumbers > 1 {
-                    iteratedString = "X"
+                    iteratedString = "-"
                 } else {
                     let iteratedArrayOfPossibleNumbers = sudokuGrid[i][j]
                     iteratedString = String.init(iteratedArrayOfPossibleNumbers[0])
@@ -74,5 +74,11 @@ class ViewController: UIViewController {
         return returnCountOfPossibleNumbersInCell
     }
     
+    //TODO: Create a method to set a cell with a seeded value
+    func setAnswerForCell(withRow inputRow: Int, andColumn inputColumn: Int, withAnswer inputAnswer: Int) {
+        sudokuGrid[inputRow][inputColumn] = [inputAnswer]
+    }
+    
+    //sets the lengthy array with an array containing just a single number, the right answer.
     //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }
