@@ -42,15 +42,18 @@ class ViewController: UIViewController {
     
     func printSudokuGrid(toTextView inputTextView: UITextView) {
         
-        //1. Init the
-        var returnText = "000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000\n000000000"
+        //1. Init the label
+        var returnText = ""
         
         //2. Print out a item for each cell
         for i in 0..<numberOfRows {
-            print("\n")
             for j in 0..<numberOfColumns {
-                print(sudokuGrid[i][j])
+                let iteratedArray = sudokuGrid[i][j]
+                let iteratedInt = iteratedArray[0]
+                let iteratedString = String.init(iteratedInt)
+                returnText.append(iteratedString)
             }
+            returnText.append("\n")
         }
         
         //3. Set the label with the data from the sudoku grid
