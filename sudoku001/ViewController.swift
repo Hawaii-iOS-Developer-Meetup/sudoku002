@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initGrid(withPossibleNumbers: possibleNumbers)
-        setAnswerForCell(withRow: 0, andColumn: 0, withAnswer: 2)
+        setGridWithPrintedAnswers()
         printSudokuGrid(toTextView: textView)
     }
     
@@ -75,11 +75,59 @@ class ViewController: UIViewController {
         return returnCountOfPossibleNumbersInCell
     }
     
-    //Sets a cell with a seeded value
+    //Sets a cell with the printed answer value
     func setAnswerForCell(withRow inputRow: Int, andColumn inputColumn: Int, withAnswer inputAnswer: Int) {
         sudokuGrid[inputRow][inputColumn] = [inputAnswer]
     }
     
-    //sets the lengthy array with an array containing just a single number, the right answer.
+    //Writes in the printed answer
+    func setGridWithPrintedAnswers() {
+        setAnswerForCell(withRow: 0, andColumn: 0, withAnswer: 5)
+        setAnswerForCell(withRow: 0, andColumn: 1, withAnswer: 3)
+        setAnswerForCell(withRow: 0, andColumn: 4, withAnswer: 7)
+        
+        setAnswerForCell(withRow: 1, andColumn: 0, withAnswer: 6)
+        setAnswerForCell(withRow: 1, andColumn: 3, withAnswer: 1)
+        setAnswerForCell(withRow: 1, andColumn: 4, withAnswer: 9)
+        setAnswerForCell(withRow: 1, andColumn: 5, withAnswer: 5)
+        
+        setAnswerForCell(withRow: 2, andColumn: 1, withAnswer: 9)
+        setAnswerForCell(withRow: 2, andColumn: 2, withAnswer: 8)
+        setAnswerForCell(withRow: 2, andColumn: 7, withAnswer: 6)
+        
+        setAnswerForCell(withRow: 3, andColumn: 0, withAnswer: 8)
+        setAnswerForCell(withRow: 3, andColumn: 4, withAnswer: 6)
+        setAnswerForCell(withRow: 3, andColumn: 8, withAnswer: 3)
+
+        setAnswerForCell(withRow: 4, andColumn: 0, withAnswer: 4)
+        setAnswerForCell(withRow: 4, andColumn: 3, withAnswer: 8)
+        setAnswerForCell(withRow: 4, andColumn: 5, withAnswer: 3)
+        setAnswerForCell(withRow: 4, andColumn: 8, withAnswer: 1)
+
+        setAnswerForCell(withRow: 5, andColumn: 0, withAnswer: 7)
+        setAnswerForCell(withRow: 5, andColumn: 4, withAnswer: 2)
+        setAnswerForCell(withRow: 5, andColumn: 8, withAnswer: 6)
+        
+        setAnswerForCell(withRow: 6, andColumn: 1, withAnswer: 6)
+        setAnswerForCell(withRow: 6, andColumn: 6, withAnswer: 2)
+        setAnswerForCell(withRow: 6, andColumn: 7, withAnswer: 8)
+        
+        setAnswerForCell(withRow: 7, andColumn: 3, withAnswer: 4)
+        setAnswerForCell(withRow: 7, andColumn: 4, withAnswer: 1)
+        setAnswerForCell(withRow: 7, andColumn: 5, withAnswer: 9)
+        setAnswerForCell(withRow: 7, andColumn: 8, withAnswer: 5)
+        
+        setAnswerForCell(withRow: 8, andColumn: 4, withAnswer: 8)
+        setAnswerForCell(withRow: 8, andColumn: 7, withAnswer: 7)
+        setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
+
+
+
+
+
+        
+        
+
+    }
     //TODO: Set up a 1 second timer that calls printSudokuGrid(toTextView
 }
