@@ -14,12 +14,21 @@ class ViewController: UIViewController {
     
     //1. Set up possible numbers into an array
     var possibleNumbers: [Int] = [1,2,3,4,5,6,7,8,9]
-    var sudokuGrid: [[[Int]]] = [[[]]]
+    var sudokuGrid: [[[Int]]] = [[[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []],
+                                 [[], [], [], [], [], [], [], [], []]]
     let numberOfRows = 9
     let numberOfColumns = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initGrid(withPossibleNumbers: possibleNumbers)
         printSudokuGrid(toTextView: textView)
     }
     
