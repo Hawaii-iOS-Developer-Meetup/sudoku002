@@ -33,11 +33,11 @@ class ViewController: UIViewController {
         
         initGrid(withPossibleNumbers: possibleNumbers)
         formatTextView()
-//        setGridWithPrintedAnswers001()
-        setGridWithPrintedAnswers002()
+        setGridWithPrintedAnswers001()
+//        setGridWithPrintedAnswers002()
         printSudokuGrid()
         startOneSecondTimer()
-//        solvePuzzle()
+        solvePuzzle()
     }
     
     //Writes in the printed answer
@@ -126,7 +126,32 @@ class ViewController: UIViewController {
         setAnswerForCell(withRow: 8, andColumn: 8, withAnswer: 9)
     }
     
+    func scanHorizontally(withRowIndex inputRowIndex: Int, andColumnIndex inputColumnIndex: Int, andCell inputCell: inout [Int]) {
+        
+        // - - - - - - - scans horizontally
+        
+        var answersFoundInRow: [Int] = []
+        
+        // scan for other answers in the current row
+        for currentColumnInScan in 0..<numberOfColumns {
+            
+            if isThisCellAnAnswer(withRow: inputRowIndex, andColumn: currentColumnInScan) {
+                // take the number out of the pringles can
+                let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[inputRowIndex][currentColumnInScan]
+                let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
+                answersFoundInRow.append(foundAnswer)
+            }
+        }
+        
+        inputCell = takeAnswersOutOfCell(withAnswers: answersFoundInRow, andCell: sudokuGrid[inputRowIndex][inputColumnIndex])
+        
+        // set the data after having removed all found horizontal numbers already  the row
+        sudokuGrid[inputRowIndex][inputColumnIndex] = inputCell
+    }
+    
     func solvePuzzle() {
+        
+//         Timer.scheduledTimer(timeInterval: TimeInterval(3), target: self, selector: "functionHere", userInfo: nil, repeats: false)
         
         for _ in 0..<11 {
         
@@ -134,34 +159,9 @@ class ViewController: UIViewController {
                 for columnIndex in 0..<numberOfColumns {
                     
                     var cell = sudokuGrid[rowIndex][columnIndex]
-                    
-                    // - - - - - - - scans horizontally
-                    
-                    var answersFoundInRow: [Int] = []
-                    
-                    // scan for other answers in the current row
-                    for currentColumnInScan in 0..<numberOfColumns {
-                        
-                        if isThisCellAnAnswer(withRow: rowIndex, andColumn: currentColumnInScan) {
-                            // take the number out of the pringles can
-                            let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[rowIndex][currentColumnInScan]
-                            let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
-                            answersFoundInRow.append(foundAnswer)
-                            
-                            // remove the number from anything that scans it
-                            // any box that scans this cell, removes it from its own can
-                        } else {
-                            // do nothing
-                        }
-                    }
-                    
-                    //                print(answersFoundInRow)
-                    
-                    cell = takeAnswersOutOfCell(withAnswers: answersFoundInRow, andCell: sudokuGrid[rowIndex][columnIndex])
-                    
-                    // set the data after having removed all found horizontal numbers already  the row
-                    sudokuGrid[rowIndex][columnIndex] = cell
-                    
+
+                    scanHorizontally(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+
                     // - - - - - - - - - - scan vertically
                     
                     var answersFoundInColumn: [Int] = []
