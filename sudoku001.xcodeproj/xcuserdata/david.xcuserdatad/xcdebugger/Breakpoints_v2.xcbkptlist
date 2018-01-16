@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537740850.254566"
+            timestampString = "537753521.453917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "solvePuzzle()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537740850.255128"
+            timestampString = "537753521.454458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "795"
+            endingLineNumber = "795"
             landmarkName = "isThisCellAnAnswer(withRow:andColumn:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537740850.255495"
+            timestampString = "537753521.454818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "solvePuzzle()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "200"
+            continueAfterRunningActions = "No"
+            filePath = "sudoku001/ViewController.swift"
+            timestampString = "537753521.455114"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "solvePuzzle()"
             landmarkType = "7">
          </BreakpointContent>
@@ -55,14 +71,46 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
-            ignoreCount = "200"
+            ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537740850.2557369"
+            timestampString = "537753521.4554009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "781"
+            endingLineNumber = "781"
+            landmarkName = "takeAnswersOutOfCell(withAnswers:andCell:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sudoku001/ViewController.swift"
+            timestampString = "537753521.4556741"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "solvePuzzle()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sudoku001/ViewController.swift"
+            timestampString = "537753521.456017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "solvePuzzle()"
             landmarkType = "7">
          </BreakpointContent>
