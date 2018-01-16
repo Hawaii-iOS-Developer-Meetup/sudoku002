@@ -234,26 +234,26 @@ class ViewController: UIViewController {
 //         Timer.scheduledTimer(timeInterval: TimeInterval(3), target: self, selector: "functionHere", userInfo: nil, repeats: false)
         
         for _ in 0..<11 {
-        
-            for rowIndex in 0..<numberOfRows {
-                for columnIndex in 0..<numberOfColumns {
+            for rowIndex in 0..<self.numberOfRows {
+                for columnIndex in 0..<self.numberOfColumns {
                     
-                    var cell = sudokuGrid[rowIndex][columnIndex]
-
-                    scanHorizontally(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                    var cell = self.sudokuGrid[rowIndex][columnIndex]
                     
-                    scanVertically(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
-
-                    scanBlocks(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        
+                        self.scanHorizontally(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                        
+                        
+                        self.scanVertically(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                        
+                        self.scanBlocks(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                        
+                    })
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                // Put your code which should be executed with a delay here
-                self.printSudokuGrid()
-                
-            })
-            
+            // Put your code which should be executed with a delay here
+            self.printSudokuGrid()
         }
     }
     
