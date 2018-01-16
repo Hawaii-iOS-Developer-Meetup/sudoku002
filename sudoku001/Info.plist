@@ -9,6 +9,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>neon_pixel-7.ttf</string>
+		<string>digital.ttf</string>
+		<string>anonymous.ttf</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>

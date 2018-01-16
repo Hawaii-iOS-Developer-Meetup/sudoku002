@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		63266446200C483400291D64 /* neon_pixel-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF991200C4364004235EA /* neon_pixel-7.ttf */; };
+		63266448200D849300291D64 /* digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63266447200D849200291D64 /* digital.ttf */; };
+		63266449200D849300291D64 /* digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63266447200D849200291D64 /* digital.ttf */; };
+		6326644A200D849300291D64 /* digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63266447200D849200291D64 /* digital.ttf */; };
+		6326644C200D886100291D64 /* anonymous.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6326644B200D886100291D64 /* anonymous.ttf */; };
+		6326644D200D886100291D64 /* anonymous.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6326644B200D886100291D64 /* anonymous.ttf */; };
+		6326644E200D886100291D64 /* anonymous.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6326644B200D886100291D64 /* anonymous.ttf */; };
 		63AFF964200ACC4E004235EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF963200ACC4E004235EA /* AppDelegate.swift */; };
 		63AFF966200ACC4E004235EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF965200ACC4E004235EA /* ViewController.swift */; };
 		63AFF969200ACC4E004235EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF967200ACC4E004235EA /* Main.storyboard */; };
@@ -35,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63266447200D849200291D64 /* digital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = digital.ttf; sourceTree = "<group>"; };
+		6326644B200D886100291D64 /* anonymous.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = anonymous.ttf; sourceTree = "<group>"; };
 		63AFF960200ACC4E004235EA /* sudoku001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sudoku001.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFF963200ACC4E004235EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63AFF965200ACC4E004235EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +113,8 @@
 				63AFF96A200ACC4E004235EA /* Assets.xcassets */,
 				63AFF96C200ACC4E004235EA /* LaunchScreen.storyboard */,
 				63AFF991200C4364004235EA /* neon_pixel-7.ttf */,
+				63266447200D849200291D64 /* digital.ttf */,
+				6326644B200D886100291D64 /* anonymous.ttf */,
 				63AFF96F200ACC4E004235EA /* Info.plist */,
 			);
 			path = sudoku001;
@@ -232,7 +242,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6326644C200D886100291D64 /* anonymous.ttf in Resources */,
 				63266446200C483400291D64 /* neon_pixel-7.ttf in Resources */,
+				63266448200D849300291D64 /* digital.ttf in Resources */,
 				63AFF96E200ACC4E004235EA /* LaunchScreen.storyboard in Resources */,
 				63AFF96B200ACC4E004235EA /* Assets.xcassets in Resources */,
 				63AFF969200ACC4E004235EA /* Main.storyboard in Resources */,
@@ -243,6 +255,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6326644D200D886100291D64 /* anonymous.ttf in Resources */,
+				63266449200D849300291D64 /* digital.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +264,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6326644E200D886100291D64 /* anonymous.ttf in Resources */,
+				6326644A200D849300291D64 /* digital.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
