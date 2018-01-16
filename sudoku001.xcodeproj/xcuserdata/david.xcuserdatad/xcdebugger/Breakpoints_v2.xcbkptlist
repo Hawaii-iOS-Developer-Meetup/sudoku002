@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537764956.879135"
+            timestampString = "537765448.091362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
             landmarkName = "isThisCellAnAnswer(withRow:andColumn:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537764956.8796411"
+            timestampString = "537765448.0918109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "takeAnswersOutOfCell(withAnswers:andCell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537764956.879984"
+            timestampString = "537765448.092134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "solvePuzzle()"
             landmarkType = "7">
             <Actions>
@@ -66,11 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sudoku001/ViewController.swift"
-            timestampString = "537764956.8803231"
+            timestampString = "537765448.092446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "formatTextView()"
             landmarkType = "7">
          </BreakpointContent>

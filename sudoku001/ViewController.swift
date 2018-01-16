@@ -128,8 +128,6 @@ class ViewController: UIViewController {
     
     func scanHorizontally(withRowIndex inputRowIndex: Int, andColumnIndex inputColumnIndex: Int, andCell inputCell: inout [Int]) {
         
-        // - - - - - - - scans horizontally
-        
         var answersFoundInRow: [Int] = []
         
         // scan for other answers in the current row
@@ -145,8 +143,90 @@ class ViewController: UIViewController {
         
         inputCell = takeAnswersOutOfCell(withAnswers: answersFoundInRow, andCell: sudokuGrid[inputRowIndex][inputColumnIndex])
         
+        // set the data after having removed all found horizontal numbers already the row
+        sudokuGrid[inputRowIndex][inputColumnIndex] = inputCell
+    }
+    
+    func scanVertically(withRowIndex inputRowIndex: Int, andColumnIndex inputColumnIndex: Int, andCell inputCell: inout [Int]) {
+        
+        var answersFoundInColumn: [Int] = []
+        
+        // scan for other answers in the current column
+        for currentRowInScan in 0..<numberOfRows {
+            
+            if isThisCellAnAnswer(withRow: currentRowInScan, andColumn: inputColumnIndex) {
+                // take the number out of the pringles can
+                let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[currentRowInScan][inputColumnIndex]
+                let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
+                answersFoundInColumn.append(foundAnswer)
+            }
+        }
+        
+        print(answersFoundInColumn)
+        
+        inputCell = takeAnswersOutOfCell(withAnswers: answersFoundInColumn, andCell: sudokuGrid[inputRowIndex][inputColumnIndex])
+        
         // set the data after having removed all found horizontal numbers already  the row
         sudokuGrid[inputRowIndex][inputColumnIndex] = inputCell
+        
+    }
+    
+    func scanBlocks(withRowIndex inputRowIndex: Int, andColumnIndex inputColumnIndex: Int, andCell inputCell: inout [Int]) {
+        
+        //Sets up blocks for block scans
+        let blockOne = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
+        let blockTwo = [[0,3],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
+        let blockThree = [[0,6],[0,7],[0,8],[1,6],[1,7],[1,8],[2,6],[2,7],[2,8]]
+        
+        let blockFour = [[3,0],[3,1],[3,2],[4,0],[4,1],[4,2],[5,0],[5,1],[5,2]]
+        let blockFive = [[3,3],[3,4],[3,5],[4,3],[4,4],[4,5],[5,3],[5,4],[5,5]]
+        let blockSix = [[3,6],[3,7],[3,8],[4,6],[4,7],[4,8],[5,6],[5,7],[5,8]]
+        
+        let blockSeven = [[6,0],[6,1],[6,2],[7,0],[7,1],[7,2],[8,0],[8,1],[8,2]]
+        let blockEight = [[6,3],[6,4],[6,5],[7,3],[7,4],[7,5],[8,3],[8,4],[8,5]]
+        let blockNine = [[6,6],[6,7],[6,8],[7,6],[7,7],[7,8],[8,6],[8,7],[8,8]]
+        
+        let blocks = [blockOne,
+                      blockTwo,
+                      blockThree,
+                      blockFour,
+                      blockFive,
+                      blockSix,
+                      blockSeven,
+                      blockEight,
+                      blockNine]
+        
+        for iteratedBlock in blocks {
+            
+            // if current cell is in block one
+            if isCellInBlock(withCoords: iteratedBlock, andRow: inputRowIndex, andColumn: inputColumnIndex) {
+                
+                for coordinates in iteratedBlock {
+                    
+                    var answersFoundInInteratedBlock: [Int] = []
+                    
+                    for currentIndexOfIteratedBlock in 0..<iteratedBlock.count {
+                        
+                        if let iteratedRow = iteratedBlock[currentIndexOfIteratedBlock].first, let iteratedColumn = iteratedBlock[currentIndexOfIteratedBlock].last {
+                            if isThisCellAnAnswer(withRow: iteratedRow, andColumn: iteratedColumn) {
+                                // take the number out of the pringles can
+                                let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[iteratedRow][iteratedColumn]
+                                let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
+                                answersFoundInInteratedBlock.append(foundAnswer)
+                                print(foundAnswer)
+                            }
+                        }
+                    }
+                    
+                    print(answersFoundInInteratedBlock)
+                    
+                    inputCell = takeAnswersOutOfCell(withAnswers: answersFoundInInteratedBlock, andCell: sudokuGrid[inputRowIndex][inputColumnIndex])
+                    
+                    // set the data after having removed all found horizontal numbers already  the row
+                    sudokuGrid[inputRowIndex][inputColumnIndex] = inputCell
+                }
+            }
+        }
     }
     
     func solvePuzzle() {
@@ -161,86 +241,10 @@ class ViewController: UIViewController {
                     var cell = sudokuGrid[rowIndex][columnIndex]
 
                     scanHorizontally(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
+                    
+                    scanVertically(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
 
-                    // - - - - - - - - - - scan vertically
-                    
-                    var answersFoundInColumn: [Int] = []
-                    
-                    // scan for other answers in the current column
-                    for currentRowInScan in 0..<numberOfRows {
-                        
-                        if isThisCellAnAnswer(withRow: currentRowInScan, andColumn: columnIndex) {
-                            // take the number out of the pringles can
-                            let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[currentRowInScan][columnIndex]
-                            let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
-                            answersFoundInColumn.append(foundAnswer)
-                        }
-                    }
-                    
-                    print(answersFoundInColumn)
-                    
-                    cell = takeAnswersOutOfCell(withAnswers: answersFoundInColumn, andCell: sudokuGrid[rowIndex][columnIndex])
-                    
-                    // set the data after having removed all found horizontal numbers already  the row
-                    sudokuGrid[rowIndex][columnIndex] = cell
-                    
-                    // - - - - - - - - - -  scan the block
-                    
-                    //Sets up blocks for block scans
-                    let blockOne = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]]
-                    let blockTwo = [[0,3],[0,4],[0,5],[1,3],[1,4],[1,5],[2,3],[2,4],[2,5]]
-                    let blockThree = [[0,6],[0,7],[0,8],[1,6],[1,7],[1,8],[2,6],[2,7],[2,8]]
-                    
-                    let blockFour = [[3,0],[3,1],[3,2],[4,0],[4,1],[4,2],[5,0],[5,1],[5,2]]
-                    let blockFive = [[3,3],[3,4],[3,5],[4,3],[4,4],[4,5],[5,3],[5,4],[5,5]]
-                    let blockSix = [[3,6],[3,7],[3,8],[4,6],[4,7],[4,8],[5,6],[5,7],[5,8]]
-                    
-                    let blockSeven = [[6,0],[6,1],[6,2],[7,0],[7,1],[7,2],[8,0],[8,1],[8,2]]
-                    let blockEight = [[6,3],[6,4],[6,5],[7,3],[7,4],[7,5],[8,3],[8,4],[8,5]]
-                    let blockNine = [[6,6],[6,7],[6,8],[7,6],[7,7],[7,8],[8,6],[8,7],[8,8]]
-                    
-                    let blocks = [blockOne,
-                                  blockTwo,
-                                  blockThree,
-                                  blockFour,
-                                  blockFive,
-                                  blockSix,
-                                  blockSeven,
-                                  blockEight,
-                                  blockNine]
-                    
-                    for iteratedBlock in blocks {
-                        
-                        // if current cell is in block one
-                        if isCellInBlock(withCoords: iteratedBlock, andRow: rowIndex, andColumn: columnIndex) {
-                            
-                            for coordinates in iteratedBlock {
-                                
-                                var answersFoundInInteratedBlock: [Int] = []
-                                
-                                for currentIndexOfIteratedBlock in 0..<iteratedBlock.count {
-                                    
-                                    if let iteratedRow = iteratedBlock[currentIndexOfIteratedBlock].first, let iteratedColumn = iteratedBlock[currentIndexOfIteratedBlock].last {
-                                        if isThisCellAnAnswer(withRow: iteratedRow, andColumn: iteratedColumn) {
-                                            // take the number out of the pringles can
-                                            let cellCurrentlyBeingCheckedForAnswers = sudokuGrid[iteratedRow][iteratedColumn]
-                                            let foundAnswer = cellCurrentlyBeingCheckedForAnswers[0]
-                                            answersFoundInInteratedBlock.append(foundAnswer)
-                                            print(foundAnswer)
-                                        }
-                                    }
-                                }
-                                
-                                print(answersFoundInInteratedBlock)
-                                
-                                cell = takeAnswersOutOfCell(withAnswers: answersFoundInInteratedBlock, andCell: sudokuGrid[rowIndex][columnIndex])
-                                
-                                // set the data after having removed all found horizontal numbers already  the row
-                                sudokuGrid[rowIndex][columnIndex] = cell
-                                print(coordinates)
-                            }
-                        }
-                    }
+                    scanBlocks(withRowIndex: rowIndex, andColumnIndex: columnIndex, andCell: &cell)
                 }
             }
             
